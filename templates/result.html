@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        html, body {
+            height: 100%; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("{{ url_for('static', filename='result.png') }}"); /* Background image */
+            background-size: contain; /* Make the background fit the screen without enlarging */
+            background-repeat: no-repeat; /* Prevent image from repeating */
+            background-position: center; /* Center the background image */
+            color: white; /* Text color for contrast */
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            max-width: 400px;
+            width: 90%;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #1a73e8; /* Button color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0c56d0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <p>
+            {% if diabetes_type == 'Non-Diabetic' %}
+                The patient is <strong>Not Diabetic</strong>.
+            {% else %}
+                The patient is diagnosed as <strong>Diabetic</strong>.
+            {% endif %}
+        </p>
+
+        <!-- Conditional navigation based on the diagnosis -->
+        {% if diabetes_type == 'Non-Diabetic' %}
+            <a href="{{ url_for('future_risk_dashboard') }}">
+                <button>Assess Future Risk</button>
+            </a>
+        {% else %}
+            <a href="{{ url_for('dashboard') }}">
+                <button>Go to Diabetes Dashboard</button>
+            </a>        
+        {% endif %}
+
+        <!-- Additional navigation options -->
+        <div style="margin-top: 20px;">
+            <a href="{{ url_for('home') }}">
+                <button>Go to Home</button>
+            </a>
+            <a href="{{ url_for('index') }}">
+                <button>Make Another Detection</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

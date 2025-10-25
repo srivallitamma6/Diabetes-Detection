@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"explorer.compactFolders": false,
+		"explorer.confirmDragAndDrop": true,
+		"explorer.fileNesting.enabled": true,
+		"notebook.compactView": false,
+		"scm.compactFolders": false
+	}
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Detection Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">  <!-- Link to the CSS file -->
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='dashboard.png') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #1a73e8;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0c56d0;
+        }
+        h1, h2, p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diabetes Detection Dashboard</h1>
+        <p>The patient is diagnosed with {{ diabetes_type }} diabetes.</p>
+        
+        <!-- Navigation Buttons -->
+        <div>
+            <a href="{{ url_for('home') }}">
+                <button>Back to Home</button>
+            </a>
+            <a href="{{ url_for('index') }}">
+                <button>Make Another Detection</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

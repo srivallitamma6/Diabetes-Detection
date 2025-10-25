@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Diabetes Risk Assessment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='future_risk_dashboard.png') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #1a73e8;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0c56d0;
+        }
+        h1, h3, p {
+            margin: 10px 0;
+        }
+        .input-list {
+            padding: 0;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .input-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .input-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Future Diabetes Risk Assessment</h1>
+        <p>Your future risk of developing diabetes is: <strong>{{ future_risk_level }}</strong></p>
+
+        <h3>Your Inputs:</h3>
+        <div class="input-list">
+            <!-- Show input values or 'N/A' if not provided -->
+            <div class="input-item">
+                <span class="input-label">Pregnancies:</span> 
+                <span>{{ user_input.get('Pregnancies', 'N/A') }}</span>
+            </div>
+            <div class="input-item">
+                <span class="input-label">Glucose:</span> 
+                <span>{{ user_input.get('Glucose', 'N/A') }}</span>
+            </div>
+            <div class="input-item">
+                <span class="input-label">Blood Pressure:</span> 
+                <span>{{ user_input.get('BloodPressure', 'N/A') }}</span>
+            </div>
+            <div class="input-item">
+                <span class="input-label">Skin Thickness:</span> 
+                <span>{{ user_input.get('SkinThickness', 'N/A') }}</span>
+            </div>
+            <div class="input-item">
+                <span class="input-label">Insulin:</span> 
+                <span>{{ user_input.get('Insulin', 'N/A') }}</span>
+            </div>
+            <div class="input-item">
+                <span class="input-label">BMI:</span> 
+                <span>{{ user_input.get('BMI', 'N/A') }}</span>
+            </div>
+            <div class="input-item">
+                <span class="input-label">Diabetes Pedigree Function:</span> 
+                <span>{{ user_input.get('DiabetesPedigreeFunction', 'N/A') }}</span>
+            </div>
+            <div class="input-item">
+                <span class="input-label">Age:</span> 
+                <span>{{ user_input.get('Age', 'N/A') }}</span>
+            </div>
+        </div>
+        <br>
+
+        <!-- Navigation Buttons -->
+        <a href="{{ url_for('home') }}">
+            <button>Back to Home</button>
+        </a>
+        <a href="{{ url_for('index') }}">
+            <button>Make Another Detection</button>
+        </a>
+    </div>
+</body>
+</html>

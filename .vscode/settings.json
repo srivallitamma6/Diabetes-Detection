@@ -1,0 +1,7 @@
+{
+    "markdown.styles": [
+        ""
+    ],
+    "explorer.fileNesting.enabled": true,
+    "scm.compactFolders": false
+}
